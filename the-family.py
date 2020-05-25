@@ -1,5 +1,4 @@
 import operator as op
-from functools import partial
 
 from kanren import *
 from kanren.constraints import neq
@@ -156,10 +155,10 @@ def human(a_person):
     )
 
 
-lesser_than = partial(goalify, op.lt, True)
-greater_than = partial(goalify, op.gt, True)
-odd_number = partial(goalify, lambda n: n % 2 == 1, True)
-even_number = partial(goalify, lambda n: n % 2 == 0, True)
+lesser_than = goalify(op.lt, True)
+greater_than = goalify(op.gt, True)
+odd_number = goalify(lambda n: n % 2 == 1, True)
+even_number = goalify(lambda n: n % 2 == 0, True)
 
 
 def ancestor(an_adult, a_child):
