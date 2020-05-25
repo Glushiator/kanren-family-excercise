@@ -1,1 +1,2 @@
-kanren
+miniKanren
+unification~=0.2.2

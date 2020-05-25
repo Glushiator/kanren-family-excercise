@@ -2,9 +2,9 @@
 
 Tested with Python 3.6+.
 
-Uses kanren:
+Uses miniKanren:
 
-    pip install kanren
+    pip install miniKanren
 
 The objective of this exercise is to explore relations in a family group
 and query for bits of information derived from base facts.
