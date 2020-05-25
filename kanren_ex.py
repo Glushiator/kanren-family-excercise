@@ -3,7 +3,7 @@ from functools import partial
 from unification import reify
 
 
-def goalify(func, expected_result):
+def goalify(func, expected_result=True):
     def goalify_goal_constructor(*args):
         """Construct a goal for this relation."""
 

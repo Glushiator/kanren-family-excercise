@@ -155,10 +155,10 @@ def human(a_person):
     )
 
 
-lesser_than = goalify(op.lt, True)
-greater_than = goalify(op.gt, True)
-odd_number = goalify(lambda n: n % 2 == 1, True)
-even_number = goalify(lambda n: n % 2 == 0, True)
+lesser_than = goalify(op.lt)
+greater_than = goalify(op.gt)
+odd_number = goalify(lambda n: n % 2 == 1)
+even_number = goalify(lambda n: n % 2 == 0)
 
 
 def ancestor(an_adult, a_child):
