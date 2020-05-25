@@ -1,4 +1,4 @@
-## kanren family excercise
+## kanren family exercise
 
 Tested with Python 3.6+.
 
