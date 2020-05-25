@@ -162,6 +162,29 @@ odd_number = partial(goalify, lambda n: n % 2 == 1, True)
 even_number = partial(goalify, lambda n: n % 2 == 0, True)
 
 
+def ancestor(an_adult, a_child):
+    parent_of_child = var()
+    return lall(
+        parent(parent_of_child, a_child),
+        lany(
+            eq(an_adult, parent_of_child),
+            Zzz(ancestor, an_adult, parent_of_child)
+        )
+    )
+
+
+def _find_all(vars_, *goals_):
+    return run(0, vars_, *goals_, results_filter=unique)
+
+
+def _is_true(*goals_):
+    return bool(run(1, True, *goals_))
+
+
+def _find_any(*goals_):
+    return run(1, *goals_)
+
+
 facts(
     woman,
     ("Elizabeth",),
@@ -230,29 +253,8 @@ facts(
 )
 
 
-def ancestor(an_adult, a_child):
-    parent_of_child = var()
-    return lall(
-        parent(parent_of_child, a_child),
-        lany(
-            eq(an_adult, parent_of_child),
-            Zzz(ancestor, an_adult, parent_of_child)
-        )
-    )
-
-
-def _find_all(vars_, *goals_):
-    return run(0, vars_, *goals_, results_filter=unique)
-
-
-def _is_true(*goals_):
-    return bool(run(1, True, *goals_))
-
-
 def _main():
     x = var()
-
-    _find_any = partial(run, 1)
 
     print("all known women", _find_all(x, woman(x)))
     print("all known men", _find_all(x, man(x)))
