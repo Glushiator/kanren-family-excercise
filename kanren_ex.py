@@ -1,5 +1,5 @@
-from functools import partial
-
+from kanren import run
+from kanren.util import unique
 from unification import reify
 
 
@@ -38,3 +38,15 @@ def goalify(func, expected_result=True):
         return goalify_goal
 
     return goalify_goal_constructor
+
+
+def run_all(vars_, *goals_):
+    return run(0, vars_, *goals_, results_filter=unique)
+
+
+def run_is_true(*goals_):
+    return bool(run(1, True, *goals_))
+
+
+def run_any(vars_, *goals_):
+    return run(1, vars_, *goals_)
